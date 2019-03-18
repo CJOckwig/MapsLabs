@@ -1,0 +1,30 @@
+//maps lab 1
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import static java.lang.System.*;
+SpanishToEnglish spang= new SpanishToEnglish();
+void setup() {
+  try {
+    boolean traslateIsaGo=false;
+    Scanner scan=new Scanner(new File("C:\\Users\\Caleb\\Desktop\\MapsLabs\\SpanEng"));
+    scan.nextLine();
+    while (scan.hasNextLine()==true) {
+      String holder=scan.nextLine();
+      if (traslateIsaGo==false) {
+      }
+      spang.putEntry(holder);
+      if (holder.equals("STOP")==true) {
+        traslateIsaGo=true;
+      }
+      if(traslateIsaGo==true){
+        spang.translate(holder);
+      }
+    }
+
+    println(spang);
+  }
+  catch(Exception e) {
+    println(e);
+  }
+}
